@@ -19,18 +19,18 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-classify-game
+cocos-gdd
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
-- `GAME_CLASSIFIER_SYSTEM.md`
-- `GAME_TYPE_TEMPLATES.md`
+- `PRD_CONSTRAINTS.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
 - `QUALITY_GATES.md`
 - `COMMAND_ROUTING_ALIGNMENT.md`
+- `QUALITY_GATE_ALIGNMENT.md`
 - `AGENT_REGISTRY.md`
 - `AI_GAME_STUDIO_SYSTEM.md`
 
@@ -48,13 +48,13 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-Game classification / pre-production planning.
+Game design document / pre-production planning.
 
 No game implementation has started.
 
 ## Current Decision
 
-Classify the current first-version direction as:
+Approve the current first-version design direction as:
 
 ```text
 story-clear / light-interaction / narrative micro-game
@@ -72,6 +72,12 @@ Final classification decision:
 
 ```text
 CLASSIFIED_FOR_GDD
+```
+
+Final GDD decision:
+
+```text
+GDD_READY_FOR_NUMERICAL_DESIGN
 ```
 
 Correct template family:
@@ -100,6 +106,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - Game implementation started: NO.
 - Production readiness decision before this classification: DESIGN_NOT_READY.
 - Game classification decision: CLASSIFIED_FOR_GDD.
+- GDD decision: GDD_READY_FOR_NUMERICAL_DESIGN.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -107,7 +114,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story should come only after GDD, architecture, asset policy, and readiness are updated.
+- The first implementation story should come only after numerical design, architecture, asset policy, and readiness are updated.
 
 ## Accepted Risks
 
@@ -118,5 +125,5 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 ## Next Allowed Command
 
 ```text
-cocos-gdd
+cocos-numerical-design
 ```
