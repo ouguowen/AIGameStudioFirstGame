@@ -19,14 +19,14 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-gdd
+cocos-numerical-design
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
-- `PRD_CONSTRAINTS.md`
+- `GAME_NUMERICAL_DESIGN.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
 - `QUALITY_GATES.md`
 - `COMMAND_ROUTING_ALIGNMENT.md`
@@ -48,7 +48,7 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-Game design document / pre-production planning.
+Numerical design / pre-production planning.
 
 No game implementation has started.
 
@@ -80,6 +80,12 @@ Final GDD decision:
 GDD_READY_FOR_NUMERICAL_DESIGN
 ```
 
+Final numerical decision:
+
+```text
+NUMERICAL_READY_FOR_ECONOMY_DESIGN
+```
+
 Correct template family:
 
 ```text
@@ -107,6 +113,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - Production readiness decision before this classification: DESIGN_NOT_READY.
 - Game classification decision: CLASSIFIED_FOR_GDD.
 - GDD decision: GDD_READY_FOR_NUMERICAL_DESIGN.
+- Numerical decision: NUMERICAL_READY_FOR_ECONOMY_DESIGN.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -114,7 +121,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story should come only after numerical design, architecture, asset policy, and readiness are updated.
+- The first implementation story should come only after economy design, architecture, asset policy, and readiness are updated.
 
 ## Accepted Risks
 
@@ -125,5 +132,5 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 ## Next Allowed Command
 
 ```text
-cocos-numerical-design
+cocos-economy-design
 ```
