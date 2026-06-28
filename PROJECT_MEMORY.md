@@ -19,13 +19,15 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-game-brief
+cocos-classify-game
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
+- `GAME_CLASSIFIER_SYSTEM.md`
+- `GAME_TYPE_TEMPLATES.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
 - `QUALITY_GATES.md`
 - `COMMAND_ROUTING_ALIGNMENT.md`
@@ -46,16 +48,16 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-Game brief / pre-production planning.
+Game classification / pre-production planning.
 
 No game implementation has started.
 
 ## Current Decision
 
-Use a very small first-version direction:
+Classify the current first-version direction as:
 
 ```text
-story-clear / light-interaction / chapter-one validation
+story-clear / light-interaction / narrative micro-game
 ```
 
 Recommended working direction:
@@ -65,6 +67,18 @@ Moonlight Delivery
 ```
 
 This is a tiny story-clear game where the player makes simple route or dialogue choices to complete one short delivery scene.
+
+Final classification decision:
+
+```text
+CLASSIFIED_FOR_GDD
+```
+
+Correct template family:
+
+```text
+Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
+```
 
 ## Forbidden Scope
 
@@ -84,7 +98,8 @@ This is a tiny story-clear game where the player makes simple route or dialogue 
 - Cocos Creator opened: YES.
 - Browser preview tested: NO.
 - Game implementation started: NO.
-- Production readiness decision before this brief: DESIGN_NOT_READY.
+- Production readiness decision before this classification: DESIGN_NOT_READY.
+- Game classification decision: CLASSIFIED_FOR_GDD.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -92,7 +107,7 @@ This is a tiny story-clear game where the player makes simple route or dialogue 
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story should come only after classification, architecture, asset policy, and readiness are updated.
+- The first implementation story should come only after GDD, architecture, asset policy, and readiness are updated.
 
 ## Accepted Risks
 
@@ -103,5 +118,5 @@ This is a tiny story-clear game where the player makes simple route or dialogue 
 ## Next Allowed Command
 
 ```text
-cocos-classify-game
+cocos-gdd
 ```
