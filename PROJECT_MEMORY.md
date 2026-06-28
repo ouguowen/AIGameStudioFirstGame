@@ -19,13 +19,14 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-economy-design
+cocos-animation-design
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
+- `ANIMATION_PRESENTATION_RULES.md`
 - `GAME_ECONOMY_DESIGN.md`
 - `GAME_NUMERICAL_DESIGN.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
@@ -49,7 +50,7 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-Economy design / pre-production planning.
+Animation / presentation design / pre-production planning.
 
 No game implementation has started.
 
@@ -93,6 +94,12 @@ Final economy decision:
 ECONOMY_READY_FOR_ANIMATION_DESIGN
 ```
 
+Final animation decision:
+
+```text
+ANIMATION_READY_FOR_ASSET_POLICY
+```
+
 Correct template family:
 
 ```text
@@ -122,6 +129,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - GDD decision: GDD_READY_FOR_NUMERICAL_DESIGN.
 - Numerical decision: NUMERICAL_READY_FOR_ECONOMY_DESIGN.
 - Economy decision: ECONOMY_READY_FOR_ANIMATION_DESIGN.
+- Animation decision: ANIMATION_READY_FOR_ASSET_POLICY.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -129,7 +137,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story should come only after animation design, architecture, asset policy, and readiness are updated.
+- The first implementation story should come only after asset policy, architecture, and readiness are updated.
 
 ## Accepted Risks
 
@@ -140,5 +148,5 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 ## Next Allowed Command
 
 ```text
-cocos-animation-design
+cocos-asset-policy
 ```
