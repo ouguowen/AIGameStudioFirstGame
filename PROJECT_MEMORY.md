@@ -19,16 +19,16 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-animation-design
+cocos-asset-policy
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
-- `ANIMATION_PRESENTATION_RULES.md`
-- `GAME_ECONOMY_DESIGN.md`
-- `GAME_NUMERICAL_DESIGN.md`
+- `ASSET_POLICY.md` requested but not found in Skill repository
+- `COCOS_RESOURCE_RISK_MATRIX.md`
+- `COCOS_PATH_SCOPED_RULES.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
 - `QUALITY_GATES.md`
 - `COMMAND_ROUTING_ALIGNMENT.md`
@@ -50,7 +50,7 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-Animation / presentation design / pre-production planning.
+Asset policy / pre-production planning.
 
 No game implementation has started.
 
@@ -100,6 +100,12 @@ Final animation decision:
 ANIMATION_READY_FOR_ASSET_POLICY
 ```
 
+Final asset policy decision:
+
+```text
+ASSET_POLICY_READY_FOR_ARCHITECTURE
+```
+
 Correct template family:
 
 ```text
@@ -130,6 +136,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - Numerical decision: NUMERICAL_READY_FOR_ECONOMY_DESIGN.
 - Economy decision: ECONOMY_READY_FOR_ANIMATION_DESIGN.
 - Animation decision: ANIMATION_READY_FOR_ASSET_POLICY.
+- Asset policy decision: ASSET_POLICY_READY_FOR_ARCHITECTURE.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -137,7 +144,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story should come only after asset policy, architecture, and readiness are updated.
+- The first implementation story should come only after architecture and readiness are updated.
 
 ## Accepted Risks
 
@@ -148,5 +155,5 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 ## Next Allowed Command
 
 ```text
-cocos-asset-policy
+cocos-game-architecture
 ```
