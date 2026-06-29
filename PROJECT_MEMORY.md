@@ -19,21 +19,19 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-game-architecture
+cocos-first-implementation-story
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
-- `COCOS_3_8_8_BASELINE.md`
-- `COCOS_RULES.md`
-- `PROJECT_STRUCTURE.md`
-- `ARCHITECTURE_TEMPLATE_SYSTEM.md`
-- `RUNTIME_TEMPLATE_ROUTER.md`
-- `COCOS_PATH_SCOPED_RULES.md`
+- `TASK_DECOMPOSITION_RULES.md`
+- `MVP_PROTOTYPE_RULES.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
 - `QUALITY_GATES.md`
+- `COCOS_PATH_SCOPED_RULES.md`
+- `CODEX_WRITE_APPROVAL_PROTOCOL.md`
 - `COMMAND_ROUTING_ALIGNMENT.md`
 - `QUALITY_GATE_ALIGNMENT.md`
 - `AGENT_REGISTRY.md`
@@ -53,7 +51,7 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-Game architecture / pre-production planning.
+First implementation story / pre-production planning.
 
 No game implementation has started.
 
@@ -115,6 +113,12 @@ Final architecture decision:
 ARCHITECTURE_READY_FOR_FIRST_IMPLEMENTATION_STORY
 ```
 
+Final first implementation story decision:
+
+```text
+FIRST_STORY_READY_FOR_PRODUCTION_READINESS
+```
+
 Correct template family:
 
 ```text
@@ -147,6 +151,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - Animation decision: ANIMATION_READY_FOR_ASSET_POLICY.
 - Asset policy decision: ASSET_POLICY_READY_FOR_ARCHITECTURE.
 - Architecture decision: ARCHITECTURE_READY_FOR_FIRST_IMPLEMENTATION_STORY.
+- First implementation story decision: FIRST_STORY_READY_FOR_PRODUCTION_READINESS.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -154,15 +159,15 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story should list exact files and proof before any implementation starts.
+- The first implementation story is ready for production readiness review before any implementation starts.
 
 ## Accepted Risks
 
 - Runtime readiness is not satisfied yet because browser preview has not been tested.
-- The first implementation story is not dev-ready yet.
+- Production readiness has not re-passed after the first implementation story was written.
 
 ## Next Allowed Command
 
 ```text
-cocos-first-implementation-story
+cocos-production-readiness
 ```
