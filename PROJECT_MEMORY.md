@@ -19,17 +19,16 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-first-implementation-story
+cocos-production-readiness
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
-- `TASK_DECOMPOSITION_RULES.md`
-- `MVP_PROTOTYPE_RULES.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
 - `QUALITY_GATES.md`
+- `RUNTIME_PROOF_PROTOCOL.md`
 - `COCOS_PATH_SCOPED_RULES.md`
 - `CODEX_WRITE_APPROVAL_PROTOCOL.md`
 - `COMMAND_ROUTING_ALIGNMENT.md`
@@ -51,7 +50,7 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-First implementation story / pre-production planning.
+Production readiness passed for first implementation story.
 
 No game implementation has started.
 
@@ -119,6 +118,12 @@ Final first implementation story decision:
 FIRST_STORY_READY_FOR_PRODUCTION_READINESS
 ```
 
+Latest production readiness decision:
+
+```text
+READY_FOR_IMPLEMENTATION
+```
+
 Correct template family:
 
 ```text
@@ -152,6 +157,9 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - Asset policy decision: ASSET_POLICY_READY_FOR_ARCHITECTURE.
 - Architecture decision: ARCHITECTURE_READY_FOR_FIRST_IMPLEMENTATION_STORY.
 - First implementation story decision: FIRST_STORY_READY_FOR_PRODUCTION_READINESS.
+- Latest production readiness decision: READY_FOR_IMPLEMENTATION for Chapter 1 Shell only.
+- Runtime readiness: NOT_PROVEN.
+- Browser preview proof: NOT_DONE.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -159,15 +167,16 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story is ready for production readiness review before any implementation starts.
+- The next implementation may start only the Chapter 1 Shell story.
+- Runtime validation must prove browser preview visibility during implementation validation.
 
 ## Accepted Risks
 
 - Runtime readiness is not satisfied yet because browser preview has not been tested.
-- Production readiness has not re-passed after the first implementation story was written.
+- READY_FOR_IMPLEMENTATION does not mean the game is complete, browser preview passed, release is accepted, or scope can expand.
 
 ## Next Allowed Command
 
 ```text
-cocos-production-readiness
+cocos-dev-story
 ```
