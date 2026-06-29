@@ -19,15 +19,18 @@ Active for Cocos Creator 3.8.8 production workflow control.
 Applied command path:
 
 ```text
-cocos-asset-policy
+cocos-game-architecture
 ```
 
 Loaded rules:
 
 - `SKILL.md`
 - `COMMANDS.md`
-- `ASSET_POLICY.md` requested but not found in Skill repository
-- `COCOS_RESOURCE_RISK_MATRIX.md`
+- `COCOS_3_8_8_BASELINE.md`
+- `COCOS_RULES.md`
+- `PROJECT_STRUCTURE.md`
+- `ARCHITECTURE_TEMPLATE_SYSTEM.md`
+- `RUNTIME_TEMPLATE_ROUTER.md`
 - `COCOS_PATH_SCOPED_RULES.md`
 - `GAME_PRODUCTION_READINESS_GATE.md`
 - `QUALITY_GATES.md`
@@ -50,7 +53,7 @@ Cocos Creator 3.8.8.
 
 ## Current Stage
 
-Asset policy / pre-production planning.
+Game architecture / pre-production planning.
 
 No game implementation has started.
 
@@ -106,6 +109,12 @@ Final asset policy decision:
 ASSET_POLICY_READY_FOR_ARCHITECTURE
 ```
 
+Final architecture decision:
+
+```text
+ARCHITECTURE_READY_FOR_FIRST_IMPLEMENTATION_STORY
+```
+
 Correct template family:
 
 ```text
@@ -137,6 +146,7 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - Economy decision: ECONOMY_READY_FOR_ANIMATION_DESIGN.
 - Animation decision: ANIMATION_READY_FOR_ASSET_POLICY.
 - Asset policy decision: ASSET_POLICY_READY_FOR_ARCHITECTURE.
+- Architecture decision: ARCHITECTURE_READY_FOR_FIRST_IMPLEMENTATION_STORY.
 - The project is suitable for staged Codex development after design and readiness gates are complete.
 
 ## Active Assumptions
@@ -144,16 +154,15 @@ Narrative Exploration Template, reduced to a tiny authored story-clear MVP.
 - The first playable should prove a complete tiny loop, not a large feature set.
 - The first version should be understandable by a new Cocos/Codex workflow user.
 - Text, buttons, and simple visible markers are enough for early validation.
-- The first implementation story should come only after architecture and readiness are updated.
+- The first implementation story should list exact files and proof before any implementation starts.
 
 ## Accepted Risks
 
 - Runtime readiness is not satisfied yet because browser preview has not been tested.
-- Game architecture is not approved yet.
 - The first implementation story is not dev-ready yet.
 
 ## Next Allowed Command
 
 ```text
-cocos-game-architecture
+cocos-first-implementation-story
 ```
