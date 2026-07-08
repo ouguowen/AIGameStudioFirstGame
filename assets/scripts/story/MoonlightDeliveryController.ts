@@ -68,7 +68,9 @@ export class MoonlightDeliveryController extends Component {
         }
 
         if (this.objectiveLabel) {
-            this.objectiveLabel.string = 'Deliver the package before the night ends.';
+            this.objectiveLabel.string = this.completionState
+                ? 'Route selected. Delivery completed.'
+                : 'Deliver the package before the night ends.';
         }
 
         if (this.choiceButtonA) {
