@@ -13,6 +13,12 @@ type GeneratedLevelConfig = {
     };
 };
 
+type MovementProofEnemy = {
+    node: Node;
+    targetWorldPosition: Vec3;
+    completed: boolean;
+};
+
 @ccclass('CityBattleSpawnProofRuntime')
 export class CityBattleSpawnProofRuntime extends Component {
     @property(Node)
@@ -33,6 +39,11 @@ export class CityBattleSpawnProofRuntime extends Component {
     @property
     public spawnOnlyProof = true;
 
+    private readonly movementProofSpeed = 180;
+    private readonly movementProofThreshold = 4;
+    private movementProofEnemies: MovementProofEnemy[] = [];
+    private movementProofRunning = false;
+
     protected onLoad(): void {
         console.log('[CityBattleSpawnProofRuntime] onLoad');
     }
@@ -45,6 +56,50 @@ export class CityBattleSpawnProofRuntime extends Component {
         console.log('[CityBattleSpawnProofRuntime] start');
         this.validateBindings();
         this.loadLevelConfigAndSpawn();
+    }
+
+    protected update(deltaTime: number): void {
+        if (!this.movementProofRunning) {
+            return;
+        }
+
+        let completedCount = 0;
+
+        for (const proofEnemy of this.movementProofEnemies) {
+            if (proofEnemy.completed) {
+                completedCount += 1;
+                continue;
+            }
+
+            const node = proofEnemy.node;
+            const currentWorldPosition = node.worldPosition;
+            const targetWorldPosition = proofEnemy.targetWorldPosition;
+            const remainingX = targetWorldPosition.x - currentWorldPosition.x;
+            const remainingY = targetWorldPosition.y - currentWorldPosition.y;
+            const distance = Math.sqrt(remainingX * remainingX + remainingY * remainingY);
+
+            if (distance <= this.movementProofThreshold) {
+                node.setWorldPosition(targetWorldPosition);
+                proofEnemy.completed = true;
+                completedCount += 1;
+                console.log(`[CityBattleSpawnProofRuntime] Movement proof reached target threshold: ${node.name}, distance=${distance.toFixed(2)}`);
+                continue;
+            }
+
+            const step = Math.min(this.movementProofSpeed * deltaTime, distance);
+            const nextWorldPosition = new Vec3(
+                currentWorldPosition.x + (remainingX / distance) * step,
+                currentWorldPosition.y + (remainingY / distance) * step,
+                currentWorldPosition.z,
+            );
+            node.setWorldPosition(nextWorldPosition);
+        }
+
+        if (completedCount === this.movementProofEnemies.length) {
+            this.movementProofRunning = false;
+            console.log(`[CityBattleSpawnProofRuntime] Movement proof complete: movedEnemies=${completedCount}`);
+            console.log('[CityBattleSpawnProofRuntime] Movement-only proof complete. Pathfinding, combat, objective state, result path, economy, inventory, and save/load are intentionally not implemented here.');
+        }
     }
 
     private validateBindings(): void {
@@ -118,7 +173,46 @@ export class CityBattleSpawnProofRuntime extends Component {
         console.log(`[CityBattleSpawnProofRuntime] Spawned enemy count: ${this.enemyRoot.children.length}`);
 
         if (this.spawnOnlyProof) {
-            console.log('[CityBattleSpawnProofRuntime] Spawn-only proof complete. Movement, combat, objective state, and result path are intentionally not implemented here.');
+            console.log('[CityBattleSpawnProofRuntime] Spawn proof complete. Starting movement-only proof; combat, objective state, and result path are intentionally not implemented here.');
         }
+
+        this.startMovementProof();
+    }
+
+    private startMovementProof(): void {
+        this.movementProofEnemies = [];
+        this.movementProofRunning = false;
+
+        if (!this.enemyRoot) {
+            console.error('[CityBattleSpawnProofRuntime] Cannot start movement proof: enemyRoot is missing.');
+            return;
+        }
+
+        if (!this.basePoint) {
+            console.error('[CityBattleSpawnProofRuntime] Cannot start movement proof: basePoint is missing.');
+            return;
+        }
+
+        const proofTargetWorldPosition = this.basePoint.worldPosition;
+        const targetWorldPosition = new Vec3(proofTargetWorldPosition.x, proofTargetWorldPosition.y, proofTargetWorldPosition.z);
+        const proofEnemies = this.enemyRoot.children.filter((enemy) => enemy.name === 'SpawnedEnemy_001' || enemy.name === 'SpawnedEnemy_002');
+
+        if (proofEnemies.length === 0) {
+            console.warn('[CityBattleSpawnProofRuntime] Movement proof has no spawned enemies to move.');
+            return;
+        }
+
+        for (const enemy of proofEnemies) {
+            this.movementProofEnemies.push({
+                node: enemy,
+                targetWorldPosition: new Vec3(targetWorldPosition.x, targetWorldPosition.y, targetWorldPosition.z),
+                completed: false,
+            });
+
+            const currentWorldPosition = enemy.worldPosition;
+            console.log(`[CityBattleSpawnProofRuntime] Movement proof started: ${enemy.name}, from=(${currentWorldPosition.x.toFixed(2)}, ${currentWorldPosition.y.toFixed(2)}), target=BasePoint(${targetWorldPosition.x.toFixed(2)}, ${targetWorldPosition.y.toFixed(2)})`);
+        }
+
+        this.movementProofRunning = true;
     }
 }
