@@ -1,0 +1,53 @@
+{
+  "schema": "first-wave-spawn-proof-v1",
+  "tables": {
+    "level": [
+      {
+        "level_id": "city_battle_spawn_proof_001",
+        "chapter_id": "proof",
+        "level_index": 1,
+        "map_id": "scene_city_battle",
+        "wave_group_id": "wave_group_spawn_proof_001",
+        "objective_group_id": "objective_group_spawn_proof_001",
+        "enabled": true
+      }
+    ],
+    "wave": [
+      {
+        "wave_group_id": "wave_group_spawn_proof_001",
+        "wave_id": "wave_001",
+        "order_index": 1,
+        "enabled": true
+      }
+    ],
+    "spawn": [
+      {
+        "wave_id": "wave_001",
+        "spawn_id": "spawn_001",
+        "spawn_time": 0,
+        "map_point_id": "spawn_point_001",
+        "enemy_id": "enemy_placeholder",
+        "count": 1,
+        "enabled": true
+      },
+      {
+        "wave_id": "wave_001",
+        "spawn_id": "spawn_002",
+        "spawn_time": 0,
+        "map_point_id": "spawn_point_002",
+        "enemy_id": "enemy_placeholder",
+        "count": 1,
+        "enabled": true
+      }
+    ],
+    "levelObjective": [
+      {
+        "objective_group_id": "objective_group_spawn_proof_001",
+        "objective_id": "objective_spawn_only",
+        "objective_type": "spawn_only",
+        "required": true,
+        "enabled": true
+      }
+    ]
+  }
+}
