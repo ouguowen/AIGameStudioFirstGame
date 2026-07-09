@@ -83,9 +83,23 @@ export class MoonlightDeliveryController extends Component {
 
         if (this.endingText) {
             this.endingText.node.active = this.endingVisible;
-            this.endingText.string = this.completionState
-                ? 'Delivery completed before the night ends.'
-                : '';
+            this.endingText.string = this.getEndingText();
         }
+    }
+
+    private getEndingText(): string {
+        if (!this.completionState) {
+            return '';
+        }
+
+        if (this.selectedChoice === 'quiet_alley') {
+            return 'You chose the quiet alley. The delivery is completed under the moonlight.';
+        }
+
+        if (this.selectedChoice === 'main_street') {
+            return 'You chose the main street. The delivery is completed before the night ends.';
+        }
+
+        return 'Delivery completed before the night ends.';
     }
 }
