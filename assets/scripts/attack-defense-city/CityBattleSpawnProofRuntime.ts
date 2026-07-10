@@ -45,6 +45,9 @@ export class CityBattleSpawnProofRuntime extends Component {
     private movementProofRunning = false;
     private baseReachedCount = 0;
     private reachedBaseEnemies: string[] = [];
+    private resultState = 'proof_pending';
+    private proofResult = 'RESULT_PROOF_PENDING';
+    private resultProofTriggered = false;
 
     protected onLoad(): void {
         console.log('[CityBattleSpawnProofRuntime] onLoad');
@@ -102,7 +105,8 @@ export class CityBattleSpawnProofRuntime extends Component {
             this.movementProofRunning = false;
             console.log(`[CityBattleSpawnProofRuntime] Movement proof complete: movedEnemies=${completedCount}`);
             console.log(`[CityBattleSpawnProofRuntime] Objective proof final count: ${this.baseReachedCount}`);
-            console.log('[CityBattleSpawnProofRuntime] Objective-state-only proof complete. Combat, health/damage, win/loss, economy, inventory, and save/load are intentionally not implemented here.');
+            console.log(`[CityBattleSpawnProofRuntime] Result proof final state: resultState=${this.resultState}, proofResult=${this.proofResult}`);
+            console.log('[CityBattleSpawnProofRuntime] Result-path-only proof complete. Combat, health/damage, win/loss, economy, inventory, and save/load are intentionally not implemented here.');
         }
     }
 
@@ -177,7 +181,7 @@ export class CityBattleSpawnProofRuntime extends Component {
         console.log(`[CityBattleSpawnProofRuntime] Spawned enemy count: ${this.enemyRoot.children.length}`);
 
         if (this.spawnOnlyProof) {
-            console.log('[CityBattleSpawnProofRuntime] Spawn proof complete. Starting movement-only proof; combat, objective state, and result path are intentionally not implemented here.');
+            console.log('[CityBattleSpawnProofRuntime] Spawn proof complete. Starting movement/objective/result proof path; combat, health/damage, win/loss, economy, inventory, and save/load are intentionally not implemented here.');
         }
 
         this.startMovementProof();
@@ -188,6 +192,9 @@ export class CityBattleSpawnProofRuntime extends Component {
         this.movementProofRunning = false;
         this.baseReachedCount = 0;
         this.reachedBaseEnemies = [];
+        this.resultState = 'proof_pending';
+        this.proofResult = 'RESULT_PROOF_PENDING';
+        this.resultProofTriggered = false;
 
         if (!this.enemyRoot) {
             console.error('[CityBattleSpawnProofRuntime] Cannot start movement proof: enemyRoot is missing.');
@@ -231,5 +238,19 @@ export class CityBattleSpawnProofRuntime extends Component {
         this.baseReachedCount = this.reachedBaseEnemies.length;
 
         console.log(`[CityBattleSpawnProofRuntime] Objective proof state updated: enemy=${enemyName}, baseReachedCount=${this.baseReachedCount}, reachedBaseEnemies=${this.reachedBaseEnemies.join(',')}`);
+        this.recordResultProofState(this.baseReachedCount);
+    }
+
+    private recordResultProofState(objectiveProofCount: number): void {
+        if (this.resultProofTriggered || objectiveProofCount < 2) {
+            return;
+        }
+
+        this.resultProofTriggered = true;
+        this.resultState = 'proof_complete';
+        this.proofResult = 'RESULT_PROOF_COMPLETE';
+
+        console.log(`[CityBattleSpawnProofRuntime] Result path triggered at objectiveProofCount=${objectiveProofCount}`);
+        console.log(`[CityBattleSpawnProofRuntime] Result proof state updated: resultState=${this.resultState}, proofResult=${this.proofResult}`);
     }
 }
